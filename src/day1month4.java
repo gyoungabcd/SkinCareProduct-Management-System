@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class projectpractice {
+public class second {
 	static String suncream = "suncream"; static String pimple_balm = "pimple_balm"; static String moisture_cream = "moisture_cream";
 
 	public static void main(String[] args) {
@@ -18,32 +18,37 @@ public class projectpractice {
 			System.out.println("6. Exit");
 			System.out.println("choose the number between 1~6:");
 			number=sc.nextInt();
-			if (number == 1) {
-				editSkinCare();
-			}
-			else if ( number == 2) {
-				effectSkinCare();
-			}
-			else if ( number == 3) {
-				priceSkinCare();
-			}
-			else if ( number == 4) {
-				expirationDateOfSkinCare();
-			}
-			else if ( number ==5 ){
-			continue;
+			switch(number) {
+			    case 1: 
+				    editSkinCare();
+				    break;
+			    case 2:
+				    effectSkinCare();
+				    break;
+			    case 3:
+				    
+				    priceSkinCare();
+				    break;
+				
+			    case 4:
+				    expirationDateOfSkinCare();
+				    break;
 			}
 		}
 	}
+			
+			
+		
+	
 	public static void editSkinCare() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Which do you want to edit?:");
+		System.out.println("Which do you want to edit?:");
 		String editItem = sc.nextLine();
 		System.out.println(editItem);
 	}
     public static void effectSkinCare() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Which goods's effect do you want?(Choose between suncream,pimple_balm,and moisture_cream):");
+		System.out.println("Which goods's effect do you want?(Choose between suncream,pimple_balm,and moisture_cream):");
 		
 		String effectItem = sc.nextLine();
 		if(effectItem.equals(suncream)) {
@@ -59,7 +64,7 @@ public class projectpractice {
 	}
 	public static void priceSkinCare() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Which goods's price do you want?(Choose between suncream,pimple_balm,and moisture_cream):");
+		System.out.println("Which goods's price do you want?(Choose between suncream,pimple_balm,and moisture_cream):");
 		
 		String priceItem = sc.nextLine();
 		if(priceItem.equals(suncream)) {
@@ -75,7 +80,7 @@ public class projectpractice {
 	}
 	public static void expirationDateOfSkinCare() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("Which goods's expiration date do you want?(Choose between suncream,pimple_balm,and moisture_cream):");
+		System.out.println("Which goods's expiration date do you want?(Choose between suncream,pimple_balm,and moisture_cream):");
 		
 		String expirationDateOfItem = sc.nextLine();
 		if(expirationDateOfItem.equals(suncream)) {
