@@ -1,12 +1,11 @@
 import java.util.Scanner;
 
-public class second {
+public class SkinCareManager {
 	static String suncream = "suncream"; static String pimple_balm = "pimple_balm"; static String moisture_cream = "moisture_cream";
 
 	public static void main(String[] args) {
 		
 		int number=0; 
-		
 		Scanner sc = new Scanner(System.in);
 
 		while(number!=6) {
@@ -18,6 +17,7 @@ public class second {
 			System.out.println("6. Exit");
 			System.out.println("choose the number between 1~6:");
 			number=sc.nextInt();
+			
 			switch(number) {
 			    case 1: 
 				    editSkinCare();
@@ -26,10 +26,8 @@ public class second {
 				    effectSkinCare();
 				    break;
 			    case 3:
-				    
 				    priceSkinCare();
 				    break;
-				
 			    case 4:
 				    expirationDateOfSkinCare();
 				    break;
@@ -37,16 +35,15 @@ public class second {
 		}
 	}
 			
-			
-		
 	
 	public static void editSkinCare() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Which do you want to edit?:");
+		
 		String editItem = sc.nextLine();
 		System.out.println(editItem);
 	}
-    public static void effectSkinCare() {
+        public static void effectSkinCare() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Which goods's effect do you want?(Choose between suncream,pimple_balm,and moisture_cream):");
 		
@@ -60,7 +57,6 @@ public class second {
 		}else{
 			System.out.println("Back to menu!");
 		}
-		System.out.println(effectItem);
 	}
 	public static void priceSkinCare() {
 		Scanner sc = new Scanner(System.in);
@@ -76,7 +72,6 @@ public class second {
 		}else{
 			System.out.println("Back to menu!");
 		}
-		System.out.println(priceItem);
 	}
 	public static void expirationDateOfSkinCare() {
 		Scanner sc = new Scanner(System.in);
@@ -92,7 +87,5 @@ public class second {
 		}else{
 			System.out.println("Back to menu!");
 		}
-		System.out.println(expirationDateOfItem);
 	}
-	
 }
