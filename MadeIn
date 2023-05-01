@@ -1,5 +1,3 @@
-package SkinCareProduct;
-
 public enum MadeIn {
 	Korea,
 	Usa,
