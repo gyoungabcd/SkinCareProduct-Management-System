@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import SkinCareProduct.JapanProduct;
+import SkinCareProduct.MadeIn;
 import SkinCareProduct.SkinCareProduct;
 import SkinCareProduct.UsaProduct;
 
@@ -16,18 +18,25 @@ public class SkinCareProductManager {
       int country=0;
       SkinCareProduct skinCareProduct;
 	  while(country!=1 && country !=2) {
-		  System.out.print("1 for Korea ");
-		  System.out.print("2 for Usa "); 
-		  System.out.print("Select num for skinCareProduct country between 1 and 2:"); 
+		  System.out.println("1 for Korea");
+		  System.out.println("2 for Usa"); 
+		  System.out.println("3 for Japan");
+		  System.out.print("Select num 1, 2, or 3 for skinCareProduct country:"); 
 		  country=input.nextInt();
 		  if(country==1) {
-			  skinCareProduct = new SkinCareProduct();
+			  skinCareProduct = new SkinCareProduct(MadeIn.Korea);
 			  skinCareProduct.getUserInput(input);
 			  skinCareProducts.add(skinCareProduct);
 			  break;
 		  }
 		  else if(country==2) {
-			  skinCareProduct = new UsaProduct();
+			  skinCareProduct = new UsaProduct(MadeIn.Usa);
+			  skinCareProduct.getUserInput(input);
+			  skinCareProducts.add(skinCareProduct);
+			  break;
+		  }
+		  else if(country==3) {
+			  skinCareProduct = new JapanProduct(MadeIn.Japan);
 			  skinCareProduct.getUserInput(input);
 			  skinCareProducts.add(skinCareProduct);
 			  break;
