@@ -1,17 +1,22 @@
 import java.util.Scanner;
 
 public class UsaProduct extends SkinCareProduct {
+	
+	public UsaProduct(MadeIn country) {
+    	super(country);
+    }
+	
 	public void getUserInput(Scanner input) {
     	System.out.print("Product Name:");
         String name = input.next();
         this.setName(name);
         input.nextLine();
-
+        
         System.out.print("Product Price:");
         String price = input.next();
         this.setPrice(price);
         input.nextLine();
-
+        
         char answer='x';
         while(answer!='y' && answer!='Y' && answer!='n' && answer!='N')
         {
@@ -30,7 +35,7 @@ public class UsaProduct extends SkinCareProduct {
         	else {
         	}
         }
-
+                
         System.out.print("Product Effect:");
         String effect = input.nextLine();
         this.setEffect(effect);
