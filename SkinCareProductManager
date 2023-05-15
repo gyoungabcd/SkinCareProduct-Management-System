@@ -2,13 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import SkinCareProduct.JapanProduct;
+import SkinCareProduct.KoreaProduct;
 import SkinCareProduct.MadeIn;
+import SkinCareProduct.ProductInput;
 import SkinCareProduct.SkinCareProduct;
 import SkinCareProduct.UsaProduct;
 
 public class SkinCareProductManager {
    
-   ArrayList<SkinCareProduct> skinCareProducts = new ArrayList<SkinCareProduct>();
+   ArrayList<ProductInput> skinCareProducts = new ArrayList<ProductInput>();
    Scanner input;
    SkinCareProductManager(Scanner input) {
       this.input = input;
@@ -16,7 +18,7 @@ public class SkinCareProductManager {
 
    public void addSkinCareProduct() {
       int country=0;
-      SkinCareProduct skinCareProduct;
+      ProductInput productInput;
 	  while(country!=1 && country !=2) {
 		  System.out.println("1 for Korea");
 		  System.out.println("2 for Usa"); 
@@ -24,25 +26,25 @@ public class SkinCareProductManager {
 		  System.out.print("Select num 1, 2, or 3 for skinCareProduct country:"); 
 		  country=input.nextInt();
 		  if(country==1) {
-			  skinCareProduct = new SkinCareProduct(MadeIn.Korea);
-			  skinCareProduct.getUserInput(input);
-			  skinCareProducts.add(skinCareProduct);
+			  productInput = new KoreaProduct(MadeIn.Korea);
+			  productInput.getUserInput(input);
+			  skinCareProducts.add(productInput);
 			  break;
 		  }
 		  else if(country==2) {
-			  skinCareProduct = new UsaProduct(MadeIn.Usa);
-			  skinCareProduct.getUserInput(input);
-			  skinCareProducts.add(skinCareProduct);
+			  productInput = new UsaProduct(MadeIn.Usa);
+			  productInput.getUserInput(input);
+			  skinCareProducts.add(productInput);
 			  break;
 		  }
 		  else if(country==3) {
-			  skinCareProduct = new JapanProduct(MadeIn.Japan);
-			  skinCareProduct.getUserInput(input);
-			  skinCareProducts.add(skinCareProduct);
+			  productInput = new JapanProduct(MadeIn.Japan);
+			  productInput.getUserInput(input);
+			  skinCareProducts.add(productInput);
 			  break;
 		  }
 		  else {
-			  System.out.print("Select num for skinCareProduct country between 1 and 2:");
+			  System.out.println("Select num 1, 2, or 3 for skinCareProduct country:");
 		  }
 	  }
    }
@@ -73,8 +75,8 @@ public class SkinCareProductManager {
       System.out.print("SkinCareProduct Name:");
       String productName = input.next();
       for (int i = 0; i<skinCareProducts.size(); i++) {
-         SkinCareProduct skinCareProduct = skinCareProducts.get(i);
-         if (skinCareProduct.getName().equals(productName)) {
+         ProductInput productInput = skinCareProducts.get(i);
+         if (productInput.getName().equals(productName)) {
             
             int num = 0;
             while (num != 5) {
@@ -90,22 +92,22 @@ public class SkinCareProductManager {
                if (num == 1) {
                   System.out.print("Product Name:");
                   String name = input.next();
-                  skinCareProduct.setName(name);
+                  productInput.setName(name);
                }
                else if (num == 2) {
                   System.out.print("Product Price:");
                   String price = input.next();
-                  skinCareProduct.setPrice(price);
+                  productInput.setPrice(price);
                }
                else if (num == 3) {
                   System.out.print("Product Expiration Date:");
                   String expirationDate = input.next();
-                  skinCareProduct.setExpirationDate(expirationDate);
+                  productInput.setExpirationDate(expirationDate);
                }
                else if (num == 4) {
                   System.out.print("Product effect:");
                   String effect = input.next();
-                  skinCareProduct.setEffect(effect);
+                  productInput.setEffect(effect);
                }
                else {
                   continue;
@@ -123,4 +125,4 @@ public class SkinCareProductManager {
       }
         
    }
-}
+} 
