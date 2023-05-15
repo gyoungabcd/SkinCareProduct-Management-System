@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class UsaProduct extends SkinCareProduct {
+public class UsaProduct extends SkinCareProduct implements ProductInput{
 	
 	public UsaProduct(MadeIn country) {
     	super(country);
@@ -24,7 +24,7 @@ public class UsaProduct extends SkinCareProduct {
         	answer=input.nextLine().charAt(0);
         	if(answer=='y'||answer=='Y') {
         		System.out.print("Expiration date:");
-        		String expirationDate=input.next();
+        		String expirationDate=input.nextLine();
         		this.setExpirationDate(expirationDate);
         		break;
         	}
@@ -39,5 +39,28 @@ public class UsaProduct extends SkinCareProduct {
         System.out.print("Product Effect:");
         String effect = input.nextLine();
         this.setEffect(effect);
+    }
+	
+	public void printInfo() {
+    	String scountry="none";
+    	switch(this.country) {
+    	case Korea:
+    		scountry="Kor.";
+    		break;
+    	case Usa:
+    		scountry="Us.";
+    		break;
+    	case Norway:
+    		scountry="Nor.";
+    		break;
+    	case Japan:
+    		scountry="Jap.";
+    		break;
+    	default:
+    		
+    	}
+    	
+        System.out.println("country:" + scountry + "Product Name:" + name + " price:" + price +
+                        " expirationDate:" + expirationDate + " effect:" + effect);
     }
 }
