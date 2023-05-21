@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
-public abstract class SkinCareProduct {
+import exception.ExpirationDateFormatException;
+
+public abstract class SkinCareProduct implements ProductInput {
 	protected MadeIn country=MadeIn.Korea;
 	protected String name;
     protected String price;
@@ -88,7 +90,10 @@ public abstract class SkinCareProduct {
 	public String getExpirationDate() {
 		return expirationDate;
 	}
-	public void setExpirationDate(String expirationDate) {
+	public void setExpirationDate(String expirationDate) throws ExpirationDateFormatException {
+		if (!expirationDate.contains("/") && !expirationDate.equals("")) {
+			throw new ExpirationDateFormatException();
+		}		
 		this.expirationDate = expirationDate;
 	}
 	public String getPackDate() {
@@ -106,4 +111,61 @@ public abstract class SkinCareProduct {
 	
 	
     public abstract void printInfo();
+    
+    public void setProductName(Scanner input) {
+		System.out.print("Product Name:");
+		String name = input.next();
+		this.setName(name);
+	}
+	
+	public void setProductPrice(Scanner input) {
+		System.out.print("Product Price:");
+		String price = input.next();
+		this.setPrice(price);
+	}
+	
+	public void setProductExpirationDate(Scanner input) {
+		String expirationDate = "";
+		while (!expirationDate.contains("/")) {		
+			System.out.print("Product Expiration Date:");
+			expirationDate = input.next();
+			try {
+				this.setExpirationDate(expirationDate);
+			} catch (ExpirationDateFormatException e) {
+				System.out.println("Incorrect Expiration Format. put the expiration date that contains /");
+			}
+		}
+	}
+	
+	public void setProductEffect(Scanner input) {
+		System.out.print("Product effect:");
+		String effect = input.next();
+		this.setEffect(effect); 
+	}
+	
+	public void setPackDate(Scanner input) {
+	    System.out.print("Pack Date:");
+	    String packDate = input.next();
+	    this.setPackDate(packDate);
+	}
+	
+	public String getCountryString() {
+		String scountry="none";
+    	switch(this.country) {
+    	case Korea:
+    		scountry="Kor.";
+    		break;
+    	case Usa:
+    		scountry="Us.";
+    		break;
+    	case Norway:
+    		scountry="Nor.";
+    		break;
+    	case Japan:
+    		scountry="Jap.";
+    		break;
+    	default:    		
+    	}
+    	return scountry;
+	}
 }
