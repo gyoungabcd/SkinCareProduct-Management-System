@@ -1,3 +1,4 @@
+package SkinCareProduct;
 import java.util.Scanner;
 
 import exception.ExpirationDateFormatException;
