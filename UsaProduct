@@ -1,3 +1,5 @@
+package SkinCareProduct;
+
 import java.util.Scanner;
 
 public class UsaProduct extends AsianProduct {
