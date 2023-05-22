@@ -1,3 +1,5 @@
+package SkinCareProduct;
+
 import java.util.Scanner;
 
 public class KoreaProduct extends SkinCareProduct {
