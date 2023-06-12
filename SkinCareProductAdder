@@ -7,9 +7,13 @@ import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 import javax.swing.JTextField;
 
-class SkinCareProductAdder extends JFrame {
+public class SkinCareProductAdder extends JPanel {
+	
+	WindowFrame frame;
 
-    public SkinCareProductAdder() {
+    public SkinCareProductAdder(WindowFrame frame) {
+    	this.frame=frame;
+    	
         JPanel panel = new JPanel(new SpringLayout());
 
         JLabel labelName = new JLabel("Name: ", JLabel.TRAILING);
@@ -41,15 +45,8 @@ class SkinCareProductAdder extends JFrame {
 
         SpringUtilities.makeCompactGrid(panel, 5, 2, 6, 6, 6, 6);
 
-        this.setSize(300, 300);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setContentPane(panel);
+        
+        this.add(panel);
         this.setVisible(true);
     }
-
-   private JLabel JLabel(String string, int trailing) {
-      // TODO Auto-generated method stub
-      return null;
-   }
-
 }
