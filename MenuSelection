@@ -2,18 +2,24 @@ package gui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import listeners.ButtonAddListener;
+import listeners.ButtonViewListener;
+
 import javax.swing.JLabel;
 
 import java.awt.BorderLayout;
 
 import javax.swing.JButton;
 
-public class MenuSelection extends JFrame {
+public class MenuSelection extends JPanel {
 	
-	public MenuSelection() {
-		this.setSize(300,300);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	WindowFrame frame;
+	
+	public MenuSelection(WindowFrame frame) {
+		this.frame=frame;
 		
+		this.setLayout(new BorderLayout());
 		
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
@@ -25,6 +31,8 @@ public class MenuSelection extends JFrame {
 		JButton button4 = new JButton("Delete SkinCareProduct");
 		JButton button5 = new JButton("Exit Program");
 		
+		button1.addActionListener(new ButtonAddListener(frame));
+		button2.addActionListener(new ButtonViewListener(frame));
 		
 		panel1.add(label);
 		panel2.add(button1);
@@ -35,7 +43,7 @@ public class MenuSelection extends JFrame {
 		
 		this.add(panel1, BorderLayout.NORTH);
 		this.add(panel2, BorderLayout.CENTER);
-		this.setVisible(true);
+		
 	}
 
 }
