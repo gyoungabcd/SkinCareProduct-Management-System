@@ -9,6 +9,7 @@ import SkinCareProduct.JapanProduct;
 import SkinCareProduct.KoreaProduct;
 import SkinCareProduct.MadeIn;
 import SkinCareProduct.ProductInput;
+import SkinCareProduct.SkinCareProduct;
 import SkinCareProduct.UsaProduct;
 
 public class SkinCareProductManager implements Serializable{
@@ -137,10 +138,13 @@ public class SkinCareProductManager implements Serializable{
 
 		}
 	}
-
-
-
-
+	public int size() {
+		return skinCareProducts.size();
+	
+	}
+	public ProductInput get(int index) {
+		return (SkinCareProduct) skinCareProducts.get(index);
+	}
 
 	public void showEditMenu() {
 		System.out.println("** SkinCareProduct Info Edit Menu **");
