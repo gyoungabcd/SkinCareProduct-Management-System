@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gui.WindowFrame;
 import log.EventLogger;
 
 public class MenuManager {
@@ -22,7 +23,8 @@ public class MenuManager {
 		if(skinCareProductManager==null) {
 			skinCareProductManager=new SkinCareProductManager(input);
 		}
-
+		
+		WindowFrame frame=new WindowFrame(skinCareProductManager);
 		selectMenu(input, skinCareProductManager);
 		putObject(skinCareProductManager,"skinCareProductManager.ser");
 	}
